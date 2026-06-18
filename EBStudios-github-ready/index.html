@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E&amp;B Studios — Cinematic Film &amp; Photography</title>
+  <meta name="description" content="E&B Studios — cinematic film and photography for weddings and commercials, plus the social content and web that put it to work. One studio, end to end." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Progress bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Oversized glass-distorted brand mark behind the page -->
+  <svg class="filter-defs" aria-hidden="true" focusable="false">
+    <filter id="brand-fishbowl">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.028" numOctaves="2" seed="9" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="24" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </svg>
+  <div class="brand-backdrop" id="brandBackdrop" aria-hidden="true">
+    <div class="brand-lens">
+      <span class="brand-echo brand-echo-main">E&amp;B</span>
+      <span class="brand-echo brand-echo-word">STUDIOS</span>
+      <span class="brand-echo brand-echo-ghost">E&amp;B STUDIOS</span>
+    </div>
+  </div>
+
+  <!-- Curving 35mm film strips drifting through the background -->
+  <div class="film-ribbons" aria-hidden="true">
+    <div class="ribbon ribbon-1" data-speed="-0.13"><div class="filmstrip"></div></div>
+    <div class="ribbon ribbon-2" data-speed="0.1"><div class="filmstrip"></div></div>
+  </div>
+
+  <!-- Cinematic film overlay: grain + scanlines + vignette -->
+  <div class="film-overlay" aria-hidden="true">
+    <div class="grain"></div>
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+  </div>
+
+  <!-- Camera viewfinder HUD -->
+  <div class="viewfinder" id="viewfinder" aria-hidden="true">
+    <span class="vf-corner tl"></span>
+    <span class="vf-corner tr"></span>
+    <span class="vf-corner bl"></span>
+    <span class="vf-corner br"></span>
+    <span class="vf-cross"></span>
+    <span class="vf-hud vf-tl"><span class="vf-recdot"></span> REC&nbsp; <span id="vfTime">00:00:00</span></span>
+    <span class="vf-hud vf-tr">E&amp;B-CAM 01</span>
+    <span class="vf-hud vf-bl">f/1.8 · 24MM · ISO 400</span>
+    <span class="vf-hud vf-br"><span id="vfScene">SCN 01/05</span> &nbsp;·&nbsp; <span id="vfPct">0%</span></span>
+  </div>
+
+  <!-- ====================== HEADER ====================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#top" class="logo" aria-label="E&B Studios home">
+        <span class="logo-mark">E&amp;B</span>
+        <span class="logo-word">STUDIOS</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+      </nav>
+
+      <a href="#contact" class="btn btn-outline btn-sm header-cta">Book a Call</a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#work" class="mobile-link">Work</a>
+      <a href="#services" class="mobile-link">Services</a>
+      <a href="pricing.html" class="mobile-link">Pricing</a>
+      <a href="#contact" class="btn btn-solid">Book a Call</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ====================== HERO ====================== -->
+    <section class="hero container">
+      <p class="eyebrow reveal"><span class="dot"></span> Now Booking — 2026 Weddings &amp; Commercial</p>
+
+      <h1 class="hero-title reveal rack">
+        We turn moments into <em>motion</em><br />
+        brands grow on.
+      </h1>
+
+      <p class="hero-sub reveal">
+        Cinematic film and photography for weddings and commercials — plus the
+        social content and web that put it to work. One studio, end to end.
+      </p>
+
+      <div class="hero-actions reveal">
+        <a href="#reel" class="btn btn-solid">View the Reel <span class="arrow">→</span></a>
+        <a href="#contact" class="btn btn-outline">Start a Project</a>
+      </div>
+    </section>
+
+    <!-- ====================== SHOWREEL (scroll-pinned theater) ====================== -->
+    <section class="reel-scene" id="reel">
+      <div class="reel-sticky">
+        <div class="reel-stage" id="reelStage">
+          <div class="reel-frame" id="reelFrame">
+            <span class="bracket tl"></span>
+            <span class="bracket tr"></span>
+            <span class="bracket bl"></span>
+            <span class="bracket br"></span>
+
+            <div class="reel-stripes" data-parallax="0.06"></div>
+
+            <button class="play-btn" aria-label="Play showreel">
+              <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+                <path d="M8 5v14l11-7z" fill="currentColor" />
+              </svg>
+            </button>
+
+            <span class="reel-label">[ Drop Showreel · 21:9 ]</span>
+            <span class="reel-rec"><span class="rec-dot"></span> REC · <span id="recTime">00:14:08</span></span>
+          </div>
+        </div>
+
+        <span class="reel-cue" id="reelCue">↓ Scroll to roll film</span>
+      </div>
+    </section>
+
+    <!-- ====================== TRUSTED BY (marquee) ====================== -->
+    <section class="marquee-wrap" aria-label="Trusted by">
+      <div class="marquee">
+        <div class="marquee-track">
+          <span class="m-item">Marlowe Vineyards</span><span class="m-sep">/</span>
+          <span class="m-item">Northway Co.</span><span class="m-sep">/</span>
+          <span class="m-item">Reese &amp; Hart</span><span class="m-sep">/</span>
+          <span class="m-item">Atlas Realty</span><span class="m-sep">/</span>
+          <span class="m-item">Bloom Events</span><span class="m-sep">/</span>
+          <span class="m-item accent">— Trusted By —</span><span class="m-sep">/</span>
+          <!-- duplicate for seamless loop -->
+          <span class="m-item">Marlowe Vineyards</span><span class="m-sep">/</span>
+          <span class="m-item">Northway Co.</span><span class="m-sep">/</span>
+          <span class="m-item">Reese &amp; Hart</span><span class="m-sep">/</span>
+          <span class="m-item">Atlas Realty</span><span class="m-sep">/</span>
+          <span class="m-item">Bloom Events</span><span class="m-sep">/</span>
+          <span class="m-item accent">— Trusted By —</span><span class="m-sep">/</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== WHAT WE DO ====================== -->
+    <section class="section container" id="services">
+      <p class="section-tag reveal">[ 01 ] — What We Do</p>
+      <h2 class="section-title reveal rack">One studio, the whole frame.</h2>
+
+      <div class="cards-grid">
+        <article class="card reveal">
+          <span class="card-num">01</span>
+          <h3 class="card-title">Film</h3>
+          <p class="card-text">Weddings, commercials, brand films — shot and cut cinematic.</p>
+        </article>
+        <article class="card reveal">
+          <span class="card-num">02</span>
+          <h3 class="card-title">Photo</h3>
+          <p class="card-text">Stills that carry the same light as the films — in his name.</p>
+        </article>
+        <article class="card reveal">
+          <span class="card-num">03</span>
+          <h3 class="card-title">Content</h3>
+          <p class="card-text">Short-form videos, photo sets and social-ready edits made for your feed.</p>
+        </article>
+        <article class="card reveal">
+          <span class="card-num">04</span>
+          <h3 class="card-title">Web</h3>
+          <p class="card-text">Pages that turn the work into bookings. Designed, built, live.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====================== SELECTED WORK ====================== -->
+    <section class="section container" id="work">
+      <p class="section-tag reveal">[ 02 ] — Selected Work</p>
+
+      <div class="work-grid">
+        <a href="#contact" class="work-item work-tall reveal">
+          <span class="work-stripes" data-parallax="0.05"></span>
+          <span class="work-drop">[ Drop Still ]</span>
+          <div class="work-meta">
+            <h3 class="work-name">Marlowe &amp; Reese</h3>
+            <span class="work-cat">Wedding Film</span>
+          </div>
+        </a>
+        <a href="#contact" class="work-item work-short reveal">
+          <span class="work-stripes" data-parallax="0.05"></span>
+          <span class="work-drop">[ Drop Still ]</span>
+          <div class="work-meta">
+            <h3 class="work-name">Northway</h3>
+            <span class="work-cat">Brand Spot</span>
+          </div>
+        </a>
+        <a href="#contact" class="work-item work-short reveal">
+          <span class="work-stripes" data-parallax="0.05"></span>
+          <span class="work-drop">[ Drop Still ]</span>
+          <div class="work-meta">
+            <h3 class="work-name">Atlas Realty</h3>
+            <span class="work-cat">Property Film</span>
+          </div>
+        </a>
+        <a href="#contact" class="work-item work-tall reveal">
+          <span class="work-stripes" data-parallax="0.05"></span>
+          <span class="work-drop">[ Drop Still ]</span>
+          <div class="work-meta">
+            <h3 class="work-name">Bloom Events</h3>
+            <span class="work-cat">Highlight Reel</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ====================== PRICING TEASER ====================== -->
+    <section class="section container" id="studio">
+      <p class="section-tag reveal">[ 03 ] — Pricing</p>
+      <h2 class="section-title reveal rack">Photo. Video. Web.</h2>
+
+      <div class="teaser-grid">
+        <a href="pricing.html" class="teaser-card reveal">
+          <span class="teaser-num">01</span>
+          <h3 class="teaser-title">Photo</h3>
+          <p class="teaser-text">Sessions, events and stills — shot and edited cinematic.</p>
+          <span class="teaser-from">From $150</span>
+        </a>
+        <a href="pricing.html" class="teaser-card reveal">
+          <span class="teaser-num">02</span>
+          <h3 class="teaser-title">Video</h3>
+          <p class="teaser-text">Social clips, brand films and full event coverage.</p>
+          <span class="teaser-from">From $400</span>
+        </a>
+        <a href="pricing.html" class="teaser-card reveal">
+          <span class="teaser-num">03</span>
+          <h3 class="teaser-title">Webpage Building</h3>
+          <p class="teaser-text">Pages that turn the work into bookings. Designed, built, live.</p>
+          <span class="teaser-from">From $600</span>
+        </a>
+      </div>
+
+      <div class="teaser-cta reveal">
+        <a href="pricing.html" class="btn btn-solid">See full pricing &amp; packages <span class="arrow">→</span></a>
+      </div>
+    </section>
+
+    <!-- ====================== CONTACT ====================== -->
+    <section class="section container" id="contact">
+      <p class="section-tag reveal">[ 04 ] — Start a Project</p>
+      <div class="contact-grid">
+        <div class="contact-intro reveal">
+          <h2 class="section-title">Let's put your story <em>in motion</em>.</h2>
+          <p class="contact-text">
+            Tell us what you're planning — wedding, commercial, or something
+            in between. We'll get back within one business day.
+          </p>
+          <ul class="contact-info">
+            <li><span class="ci-label">Email</span> hello@ebstudios.com</li>
+            <li><span class="ci-label">Studio</span> By appointment</li>
+            <li><span class="ci-label">Social</span> @ebstudios</li>
+          </ul>
+        </div>
+
+        <form class="contact-form reveal" id="contactForm" novalidate>
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@email.com" required />
+          </div>
+          <div class="field">
+            <label for="type">Project type</label>
+            <select id="type" name="type" required>
+              <option value="" disabled selected>Select one…</option>
+              <option>Wedding film &amp; photo</option>
+              <option>Commercial / brand film</option>
+              <option>Social content</option>
+              <option>Web build</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Tell us about it</label>
+            <textarea id="message" name="message" rows="4" placeholder="Dates, location, vision…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-solid btn-block">Send Inquiry <span class="arrow">→</span></button>
+          <p class="form-status" id="formStatus" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-mark">E&amp;B</span>
+        <span class="logo-word">STUDIOS</span>
+        <p class="footer-tag">Moments into motion.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> E&amp;B Studios. All rights reserved.</span>
+      <span>Refined Cinematic</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
