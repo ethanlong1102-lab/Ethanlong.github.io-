@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout — E&amp;B Studios</title>
+  <meta name="description" content="Review and book an E&B Studios photo, video, web or package service." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Oversized glass-distorted brand mark behind the page -->
+  <svg class="filter-defs" aria-hidden="true" focusable="false">
+    <filter id="brand-fishbowl">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.028" numOctaves="2" seed="9" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="24" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </svg>
+  <div class="brand-backdrop" id="brandBackdrop" aria-hidden="true">
+    <div class="brand-lens">
+      <span class="brand-echo brand-echo-main">E&amp;B</span>
+      <span class="brand-echo brand-echo-word">STUDIOS</span>
+      <span class="brand-echo brand-echo-ghost">E&amp;B STUDIOS</span>
+    </div>
+  </div>
+
+  <div class="film-ribbons" aria-hidden="true">
+    <div class="ribbon ribbon-1" data-speed="-0.13"><div class="filmstrip"></div></div>
+    <div class="ribbon ribbon-2" data-speed="0.1"><div class="filmstrip"></div></div>
+  </div>
+
+  <div class="film-overlay" aria-hidden="true">
+    <div class="grain"></div>
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+  </div>
+
+  <div class="viewfinder" id="viewfinder" aria-hidden="true">
+    <span class="vf-corner tl"></span>
+    <span class="vf-corner tr"></span>
+    <span class="vf-corner bl"></span>
+    <span class="vf-corner br"></span>
+    <span class="vf-cross"></span>
+    <span class="vf-hud vf-tl"><span class="vf-recdot"></span> REC&nbsp; <span id="vfTime">00:00:00</span></span>
+    <span class="vf-hud vf-tr">E&amp;B-CAM 01</span>
+    <span class="vf-hud vf-bl">f/1.8 · 24MM · ISO 400</span>
+    <span class="vf-hud vf-br"><span id="vfScene">SCN 01/05</span> &nbsp;·&nbsp; <span id="vfPct">0%</span></span>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="E&B Studios home">
+        <span class="logo-mark">E&amp;B</span>
+        <span class="logo-word">STUDIOS</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html#work" class="nav-link">Work</a>
+        <a href="index.html#services" class="nav-link">Services</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+      </nav>
+
+      <a href="pricing.html" class="btn btn-outline btn-sm header-cta">Back to Pricing</a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html#work" class="mobile-link">Work</a>
+      <a href="index.html#services" class="mobile-link">Services</a>
+      <a href="pricing.html" class="mobile-link">Pricing</a>
+      <a href="pricing.html" class="btn btn-solid">Back to Pricing</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="page-hero container checkout-hero">
+      <p class="eyebrow reveal"><span class="dot"></span> Final Review</p>
+      <h1 class="hero-title reveal rack">Lock in the <em>frame</em>.</h1>
+      <p class="hero-sub reveal">
+        Review the package, confirm your project details, then move into payment.
+        The payment button is ready to connect to Stripe or Square when your account is set up.
+      </p>
+    </section>
+
+    <section class="section container checkout-section">
+      <div class="checkout-grid">
+        <article class="checkout-summary reveal">
+          <p class="section-tag">[ Selected Package ]</p>
+          <span class="checkout-category" id="checkoutCategory">Package</span>
+          <h2 class="checkout-title" id="checkoutTitle">Loading package...</h2>
+          <p class="checkout-price" id="checkoutPrice">$0+</p>
+          <p class="checkout-desc" id="checkoutDesc"></p>
+
+          <ul class="price-list checkout-includes" id="checkoutIncludes"></ul>
+
+          <div class="checkout-total">
+            <span>Starting total</span>
+            <strong id="checkoutTotal">$0+</strong>
+          </div>
+          <p class="checkout-note">
+            Final total can change if date, travel, extra hours or custom add-ons are needed.
+          </p>
+        </article>
+
+        <form class="checkout-form reveal" id="checkoutForm" novalidate>
+          <p class="section-tag">[ Project Details ]</p>
+          <div class="field">
+            <label for="clientName">Name</label>
+            <input type="text" id="clientName" name="clientName" placeholder="Your name" required />
+          </div>
+          <div class="field">
+            <label for="clientEmail">Email</label>
+            <input type="email" id="clientEmail" name="clientEmail" placeholder="you@email.com" required />
+          </div>
+          <div class="field">
+            <label for="projectDate">Ideal date</label>
+            <input type="text" id="projectDate" name="projectDate" placeholder="Date or rough timeline" />
+          </div>
+          <div class="field">
+            <label for="projectNotes">Notes</label>
+            <textarea id="projectNotes" name="projectNotes" rows="4" placeholder="Location, vision, add-ons, questions..."></textarea>
+          </div>
+
+          <div class="payment-box">
+            <span class="payment-label">Payment Step</span>
+            <h3>Pay deposit / full amount</h3>
+            <p>
+              This button is the spot for Stripe or Square Checkout. For now, it confirms the selected package and keeps the flow ready.
+            </p>
+            <button type="submit" class="btn btn-solid btn-block">Continue to Payment <span class="arrow">→</span></button>
+            <a href="index.html#contact" class="btn btn-outline btn-block">Ask Before Booking</a>
+            <p class="form-status" id="checkoutStatus" role="status"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a href="index.html" class="logo footer-logo">
+        <span class="logo-mark">E&amp;B</span>
+        <span class="logo-word">STUDIOS</span>
+      </a>
+      <div class="footer-nav">
+        <a href="index.html#work">Work</a>
+        <a href="index.html#services">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> E&amp;B Studios</span>
+        <span>Film · Photo · Content · Web</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

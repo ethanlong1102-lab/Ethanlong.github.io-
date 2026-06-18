@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing — E&amp;B Studios</title>
+  <meta name="description" content="E&B Studios pricing — photo, video and webpage building, plus combined packages. Cinematic film and photography for weddings and commercials." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Progress bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Oversized glass-distorted brand mark behind the page -->
+  <svg class="filter-defs" aria-hidden="true" focusable="false">
+    <filter id="brand-fishbowl">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.028" numOctaves="2" seed="9" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="24" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </svg>
+  <div class="brand-backdrop" id="brandBackdrop" aria-hidden="true">
+    <div class="brand-lens">
+      <span class="brand-echo brand-echo-main">E&amp;B</span>
+      <span class="brand-echo brand-echo-word">STUDIOS</span>
+      <span class="brand-echo brand-echo-ghost">E&amp;B STUDIOS</span>
+    </div>
+  </div>
+
+  <!-- Curving 35mm film strips drifting through the background -->
+  <div class="film-ribbons" aria-hidden="true">
+    <div class="ribbon ribbon-1" data-speed="-0.13"><div class="filmstrip"></div></div>
+    <div class="ribbon ribbon-2" data-speed="0.1"><div class="filmstrip"></div></div>
+  </div>
+
+  <!-- Cinematic film overlay: grain + scanlines + vignette -->
+  <div class="film-overlay" aria-hidden="true">
+    <div class="grain"></div>
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+  </div>
+
+  <!-- Camera viewfinder HUD -->
+  <div class="viewfinder" id="viewfinder" aria-hidden="true">
+    <span class="vf-corner tl"></span>
+    <span class="vf-corner tr"></span>
+    <span class="vf-corner bl"></span>
+    <span class="vf-corner br"></span>
+    <span class="vf-cross"></span>
+    <span class="vf-hud vf-tl"><span class="vf-recdot"></span> REC&nbsp; <span id="vfTime">00:00:00</span></span>
+    <span class="vf-hud vf-tr">E&amp;B-CAM 01</span>
+    <span class="vf-hud vf-bl">f/1.8 · 24MM · ISO 400</span>
+    <span class="vf-hud vf-br"><span id="vfScene">SCN 01/05</span> &nbsp;·&nbsp; <span id="vfPct">0%</span></span>
+  </div>
+
+  <!-- ====================== HEADER ====================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="E&B Studios home">
+        <span class="logo-mark">E&amp;B</span>
+        <span class="logo-word">STUDIOS</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html#work" class="nav-link">Work</a>
+        <a href="index.html#services" class="nav-link">Services</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+      </nav>
+
+      <a href="index.html#contact" class="btn btn-outline btn-sm header-cta">Book a Call</a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html#work" class="mobile-link">Work</a>
+      <a href="index.html#services" class="mobile-link">Services</a>
+      <a href="pricing.html" class="mobile-link">Pricing</a>
+      <a href="index.html#contact" class="btn btn-solid">Book a Call</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ====================== PAGE HERO ====================== -->
+    <section class="page-hero container">
+      <p class="eyebrow reveal"><span class="dot"></span> Pricing — 2026 Rates</p>
+      <h1 class="hero-title reveal rack">Clear rates for<br />every <em>frame</em>.</h1>
+      <p class="hero-sub reveal">
+        Photo, video and web — book a single service or a combined package.
+        Choose a starting point, review the final details, then move into
+        booking. Custom projects can still send an inquiry first.
+      </p>
+    </section>
+
+    <!-- ====================== BOOKING FLOW ====================== -->
+    <section class="sales-flow container reveal" aria-label="Booking flow">
+      <article class="flow-step">
+        <span class="flow-num">01</span>
+        <h2>Pick a lane</h2>
+        <p>Choose photo, video, web, or a bundled package.</p>
+      </article>
+      <article class="flow-step">
+        <span class="flow-num">02</span>
+        <h2>Review the details</h2>
+        <p>Click a package to see what is included before checkout.</p>
+      </article>
+      <article class="flow-step">
+        <span class="flow-num">03</span>
+        <h2>Book the date</h2>
+        <p>Move to payment or send a custom inquiry if it needs tailoring.</p>
+      </article>
+    </section>
+
+    <!-- ====================== PHOTO ====================== -->
+    <section class="section container price-category" id="photo">
+      <p class="section-tag reveal">[ 01 ] — Photo</p>
+      <h2 class="section-title reveal rack">Stills that carry the light.</h2>
+
+      <div class="pricing-grid grid-4">
+        <article class="price-card reveal">
+          <span class="card-num">A</span>
+          <h3 class="price-name">Mini Session</h3>
+          <p class="price-amount">$150<span>+</span></p>
+          <ul class="price-list">
+            <li>30-minute shoot, one location</li>
+            <li>15 edited, high-res images</li>
+            <li>Private online gallery</li>
+            <li>Personal-use licensing</li>
+          </ul>
+          <a href="checkout.html?item=photo-mini" class="btn btn-outline btn-block">Choose</a>
+        </article>
+
+        <article class="price-card featured reveal">
+          <span class="price-flag">Most Booked</span>
+          <span class="card-num">B</span>
+          <h3 class="price-name">Portrait Session</h3>
+          <p class="price-amount">$300<span>+</span></p>
+          <ul class="price-list">
+            <li>Up to 2 hours, multiple looks</li>
+            <li>50+ edited, high-res images</li>
+            <li>Online gallery + print store</li>
+            <li>48-hour preview turnaround</li>
+          </ul>
+          <a href="checkout.html?item=photo-portrait" class="btn btn-solid btn-block">Choose</a>
+        </article>
+
+        <article class="price-card reveal">
+          <span class="card-num">C</span>
+          <h3 class="price-name">Event / Half-Day</h3>
+          <p class="price-amount">$750<span>+</span></p>
+          <ul class="price-list">
+            <li>Up to 4 hours of coverage</li>
+            <li>150+ edited images</li>
+            <li>Web &amp; print licensing</li>
+            <li>Sneak-peek gallery next day</li>
+          </ul>
+          <a href="checkout.html?item=photo-event" class="btn btn-outline btn-block">Choose</a>
+        </article>
+
+        <article class="price-card custom reveal">
+          <span class="card-num">+</span>
+          <h3 class="price-name">Other</h3>
+          <p class="price-amount">Custom</p>
+          <ul class="price-list">
+            <li>Need a different shoot length?</li>
+            <li>Mix portraits, events or products</li>
+            <li>Tell us the look &amp; budget</li>
+            <li>We'll shape the right photo plan</li>
+          </ul>
+          <a href="index.html#contact" class="btn btn-outline btn-block">Build Custom</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====================== VIDEO ====================== -->
+    <section class="section container price-category" id="video">
+      <p class="section-tag reveal">[ 02 ] — Video</p>
+      <h2 class="section-title reveal rack">Moments, cut cinematic.</h2>
+
+      <div class="pricing-grid grid-4">
+        <article class="price-card reveal">
+          <span class="card-num">A</span>
+          <h3 class="price-name">Social Clip</h3>
+          <p class="price-amount">$400<span>+</span></p>
+          <ul class="price-list">
+            <li>One vertical short-form edit (15–60s)</li>
+            <li>Up to 1 hour of shooting</li>
+            <li>Licensed music &amp; captions</li>
+            <li>One round of revisions</li>
+          </ul>
+          <a href="checkout.html?item=video-social" class="btn btn-outline btn-block">Choose</a>
+        </article>
+
+        <article class="price-card featured reveal">
+          <span class="price-flag">Most Booked</span>
+          <span class="card-num">B</span>
+          <h3 class="price-name">Brand / Promo Film</h3>
+          <p class="price-amount">$1,200<span>+</span></p>
+          <ul class="price-list">
+            <li>Up to a half-day shoot</li>
+            <li>60–90 second edited film</li>
+            <li>Licensed music &amp; color grade</li>
+            <li>Two social cut-downs included</li>
+          </ul>
+          <a href="checkout.html?item=video-brand" class="btn btn-solid btn-block">Choose</a>
+        </article>
+
+        <article class="price-card reveal">
+          <span class="card-num">C</span>
+          <h3 class="price-name">Event / Wedding Film</h3>
+          <p class="price-amount">$2,500<span>+</span></p>
+          <ul class="price-list">
+            <li>Full-day cinematic coverage</li>
+            <li>3–5 minute highlight film</li>
+            <li>Teaser cut for socials</li>
+            <li>Second shooter optional</li>
+          </ul>
+          <a href="checkout.html?item=video-event" class="btn btn-outline btn-block">Choose</a>
+        </article>
+
+        <article class="price-card custom reveal">
+          <span class="card-num">+</span>
+          <h3 class="price-name">Other</h3>
+          <p class="price-amount">Custom</p>
+          <ul class="price-list">
+            <li>Need a unique film length?</li>
+            <li>Mix coverage, edits or socials</li>
+            <li>Tell us the story &amp; budget</li>
+            <li>We'll cut a plan around it</li>
+          </ul>
+          <a href="index.html#contact" class="btn btn-outline btn-block">Build Custom</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====================== WEBPAGE BUILDING ====================== -->
+    <section class="section container price-category" id="web">
+      <p class="section-tag reveal">[ 03 ] — Webpage Building</p>
+      <h2 class="section-title reveal rack">Pages that book the work.</h2>
+
+      <div class="pricing-grid grid-4">
+        <article class="price-card reveal">
+          <span class="card-num">A</span>
+          <h3 class="price-name">Landing Page</h3>
+          <p class="price-amount">$600<span>+</span></p>
+          <ul class="price-list">
+            <li>Single, mobile-ready page</li>
+            <li>Contact / inquiry form</li>
+            <li>Your photos &amp; video embedded</li>
+            <li>Launch + handoff</li>
+          </ul>
+          <a href="checkout.html?item=web-landing" class="btn btn-outline btn-block">Choose</a>
+        </article>
+
+        <article class="price-card featured reveal">
+          <span class="price-flag">Most Booked</span>
+          <span class="card-num">B</span>
+          <h3 class="price-name">Multi-Page Site</h3>
+          <p class="price-amount">$1,500<span>+</span></p>
+          <ul class="price-list">
+            <li>Up to 5 pages</li>
+            <li>Easy-to-edit content</li>
+            <li>Basic SEO &amp; analytics</li>
+            <li>Gallery + booking links</li>
+          </ul>
+          <a href="checkout.html?item=web-multi" class="btn btn-solid btn-block">Choose</a>
+        </article>
+
+        <article class="price-card reveal">
+          <span class="card-num">C</span>
+          <h3 class="price-name">Premium / Animated</h3>
+          <p class="price-amount">$3,000<span>+</span></p>
+          <ul class="price-list">
+            <li>Custom motion &amp; scroll effects</li>
+            <li>Like the site you're on now</li>
+            <li>Performance &amp; mobile tuned</li>
+            <li>Ongoing support available</li>
+          </ul>
+          <a href="checkout.html?item=web-premium" class="btn btn-outline btn-block">Choose</a>
+        </article>
+
+        <article class="price-card custom reveal">
+          <span class="card-num">+</span>
+          <h3 class="price-name">Other</h3>
+          <p class="price-amount">Custom</p>
+          <ul class="price-list">
+            <li>Need a different page setup?</li>
+            <li>Mix design, motion or updates</li>
+            <li>Tell us what the site should do</li>
+            <li>We'll build a custom quote</li>
+          </ul>
+          <a href="index.html#contact" class="btn btn-outline btn-block">Build Custom</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====================== PACKAGES ====================== -->
+    <section class="section container price-category" id="packages">
+      <p class="section-tag reveal">[ 04 ] — Packages</p>
+      <h2 class="section-title reveal rack">Bundle it. <em>Save more.</em></h2>
+
+      <div class="pricing-grid grid-4">
+        <article class="price-card reveal">
+          <span class="card-num">01</span>
+          <h3 class="price-name">Content Day</h3>
+          <p class="price-amount">$900<span>+</span></p>
+          <ul class="price-list">
+            <li>Photo + social video, one shoot</li>
+            <li>30+ edited images</li>
+            <li>2 short-form video edits</li>
+            <li>Built for a month of posts</li>
+          </ul>
+          <a href="checkout.html?item=package-content-day" class="btn btn-outline btn-block">Choose</a>
+        </article>
+
+        <article class="price-card featured reveal">
+          <span class="price-flag">Best Value</span>
+          <span class="card-num">02</span>
+          <h3 class="price-name">Brand Builder</h3>
+          <p class="price-amount">$3,500<span>+</span></p>
+          <ul class="price-list">
+            <li>Brand film + photo set</li>
+            <li>Landing page to launch it</li>
+            <li>Social cut-downs included</li>
+            <li>One studio, end to end</li>
+          </ul>
+          <a href="checkout.html?item=package-brand-builder" class="btn btn-solid btn-block">Choose</a>
+        </article>
+
+        <article class="price-card reveal">
+          <span class="card-num">03</span>
+          <h3 class="price-name">The Full Frame</h3>
+          <p class="price-amount">$6,000<span>+</span></p>
+          <ul class="price-list">
+            <li>Full film + full photo coverage</li>
+            <li>Multi-page website build</li>
+            <li>Highlight film + teaser + stills</li>
+            <li>The complete package</li>
+          </ul>
+          <a href="checkout.html?item=package-full-frame" class="btn btn-outline btn-block">Choose</a>
+        </article>
+
+        <article class="price-card custom reveal">
+          <span class="card-num">+</span>
+          <h3 class="price-name">Other</h3>
+          <p class="price-amount">Custom</p>
+          <ul class="price-list">
+            <li>Like a package but want it tweaked?</li>
+            <li>Mix photo, video &amp; web your way</li>
+            <li>Tell us the vision &amp; your budget</li>
+            <li>We'll build something that fits</li>
+          </ul>
+          <a href="index.html#contact" class="btn btn-outline btn-block">Build Custom</a>
+        </article>
+      </div>
+
+      <!-- TODO: swap the placeholder prices above for your real rates -->
+      <p class="price-note reveal">Note · prices are editable placeholders — swap in your real rates</p>
+    </section>
+
+    <!-- ====================== CONTACT CTA ====================== -->
+    <section class="section container" id="contact-cta">
+      <div class="contact-intro reveal" style="text-align:center; max-width:640px; margin-inline:auto;">
+        <h2 class="section-title rack">Not sure which fits?</h2>
+        <p class="contact-text" style="margin-inline:auto;">
+          Tell us what you're planning and we'll put together a custom quote —
+          usually within one business day.
+        </p>
+        <a href="index.html#contact" class="btn btn-solid">Start a Project <span class="arrow">→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-mark">E&amp;B</span>
+        <span class="logo-word">STUDIOS</span>
+        <p class="footer-tag">Moments into motion.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="index.html#work">Work</a>
+        <a href="index.html#services">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> E&amp;B Studios. All rights reserved.</span>
+      <span>Refined Cinematic</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
