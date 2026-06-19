@@ -69,8 +69,9 @@
     else header.classList.remove("hide");
     lastY = y;
 
-    // depth-of-field parallax
-    if (!reduceMotion) {
+    // depth-of-field parallax (desktop only — skip on mobile for perf)
+    const isCompact = window.innerWidth <= 900;
+    if (!reduceMotion && !isCompact) {
       const vh = window.innerHeight;
       for (const el of parallaxEls) {
         const r = el.getBoundingClientRect();
@@ -84,10 +85,8 @@
         const sp = parseFloat(rb.dataset.speed) || 0.06;
         rb.style.transform = `translate3d(0, ${(y * sp).toFixed(1)}px, 0)`;
       }
-      if (brandBackdrop) {
-        brandBackdrop.style.setProperty("--brand-shift", `${(pct * 120 - 40).toFixed(1)}px`);
-        brandBackdrop.style.setProperty("--brand-roll", `${(pct * 3 - 1.5).toFixed(2)}deg`);
-      }
+      // brand backdrop: CSS lensFloat animation handles the drift —
+      // driving it via JS vars forces feTurbulence to recompute every scroll tick
     }
 
     driveReel();
