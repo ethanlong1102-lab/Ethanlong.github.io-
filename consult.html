@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Consult — E&amp;B Studios</title>
+  <meta name="description" content="Book a free 30-minute consult with E&B Studios. No tiers, no card — one scope at one fair price, in your inbox within 48 hours." />
+  <script>document.documentElement.classList.add("js");</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="E&amp;B Studios home"><span class="logo-mark">E&amp;B</span><span class="logo-word">STUDIOS</span></a>
+      <nav class="nav" aria-label="Primary">
+        <a class="navl" href="index.html">Home</a>
+        <a class="navl" href="work.html">Work</a>
+        <a class="navl" href="#faq">Questions</a>
+      </nav>
+      <span class="status-pill"><span class="dot" aria-hidden="true"></span>NOW BOOKING</span>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <!-- hero -->
+    <section class="consult-hero">
+      <p class="label rv" data-rv>THE CONSULT — FREE · 30 MIN · NO CARD</p>
+      <h1 class="h1">
+        <span class="lift" data-rv><span>Let's find out what the</span></span>
+        <span class="lift" data-rv style="--d:.12s"><span><em class="mark" data-rv><span data-wave="0.06">right fit</span></em> is for you.</span></span>
+      </h1>
+      <p class="lede rv" data-rv style="--d:.14s">No tiers, no packages to decode. Thirty minutes on a call, then everything you need folded into <strong>one scope at one fair price</strong> — in your inbox within 48 hours.</p>
+    </section>
+
+    <!-- booking -->
+    <section id="book" class="section-last">
+      <!-- Built-in request form (used until a Google Calendar booking link is set in script.js) -->
+      <div data-booking-form>
+        <form novalidate>
+          <div class="book-grid">
+            <div class="panel rv" data-rv>
+              <div class="panel-head">
+                <p class="step-label">STEP 01 — PICK A TIME</p>
+                <div class="month-nav">
+                  <button type="button" class="day day-nav" data-prev aria-label="Previous month">‹</button>
+                  <span class="month-label" data-month aria-live="polite">September 2026</span>
+                  <button type="button" class="day day-nav" data-next aria-label="Next month">›</button>
+                </div>
+              </div>
+              <div class="weekdays" aria-hidden="true"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+              <div class="days" data-days></div>
+
+              <p class="step-label slots-label">AVAILABLE — <span data-tz>CT</span></p>
+              <div class="slots" data-slots></div>
+              <p class="hint">Shown in <span data-tz-long>Central Time</span>. Video or phone — your call.</p>
+            </div>
+
+            <div class="panel rv" data-rv style="--d:.1s">
+              <p class="step-label" style="margin-bottom:20px">STEP 02 — YOUR DETAILS</p>
+              <div class="fields">
+                <label class="field"><span>NAME</span><input class="fld" type="text" name="name" autocomplete="name" placeholder="Your name" required /></label>
+                <label class="field"><span>EMAIL</span><input class="fld" type="email" name="email" autocomplete="email" placeholder="you@company.com" required /></label>
+              </div>
+              <div class="fields">
+                <label class="field"><span>PROJECT TYPE</span>
+                  <select class="fld" name="type">
+                    <option>Brand</option>
+                    <option>Film</option>
+                    <option>Social media</option>
+                    <option>Wedding</option>
+                    <option>Property</option>
+                    <option>Something else</option>
+                  </select>
+                </label>
+                <label class="field"><span>TARGET WINDOW</span><input class="fld" type="text" name="window" placeholder="e.g. Nov 2026" /></label>
+              </div>
+              <label class="field field-full"><span>WHAT DO YOU WANT TO WALK AWAY WITH?</span><textarea class="fld" name="goal" rows="4" placeholder="A launch film, a month of social, a site that converts…"></textarea></label>
+            </div>
+          </div>
+
+          <div class="summary rv" data-rv style="--d:.16s">
+            <div>
+              <p class="label">YOUR SLOT</p>
+              <p class="big" data-chosen aria-live="polite">Pick a day to continue</p>
+              <p class="sub">30 minutes · <span data-tz>CT</span> · Video or phone</p>
+            </div>
+            <div>
+              <p class="label">WE'LL COVER</p>
+              <p class="sub" style="margin:0">What the work has to do · scope, dates and crew · a real number before you hang up.</p>
+            </div>
+            <div class="align-end">
+              <button type="submit" class="btn btn-lime btn-lg">Request this slot <span class="ar">→</span></button>
+              <p class="note-dark">WE CONFIRM BY EMAIL · NO CARD</p>
+            </div>
+            <p class="form-status" data-status role="status"></p>
+          </div>
+        </form>
+      </div>
+
+      <!-- Live booking (shown automatically once bookingEmbedUrl is set in script.js) -->
+      <div data-booking-embed hidden>
+        <div class="panel embed-panel">
+          <p class="step-label with-dot" style="margin-bottom:18px"><span class="dot" aria-hidden="true"></span>PICK A TIME — LIVE AVAILABILITY</p>
+        </div>
+        <p class="hint">Calendar not loading? <a class="navl" data-booking-link href="https://calendar.app.google/4SrA89J7dB6cKtww9">Open the booking page</a> — 30 minutes, video or phone, no card.</p>
+      </div>
+    </section>
+
+    <!-- process -->
+    <section class="section-last" aria-label="How it works">
+      <div class="strip">
+        <div class="rv" data-rv><h3>01 — WE LISTEN</h3><p>Goals, dates, audience, budget appetite. Honest answers, both directions.</p></div>
+        <div class="rv" data-rv style="--d:.08s"><h3>02 — WE SIMPLIFY</h3><p>Everything you need collapses into a single scope you can read in a minute.</p></div>
+        <div class="rv is-lime" data-rv style="--d:.16s"><h3>03 — WE PRICE IT ONCE</h3><p>One number, within 48 hours. If we're not the right fit, we'll say so.</p></div>
+      </div>
+    </section>
+
+    <!-- faq -->
+    <section id="faq" class="faq section-last">
+      <p class="label rv" data-rv>BEFORE YOU BOOK</p>
+      <h2 class="h2 h2-sm"><span class="lift" data-rv><span>Questions we get asked.</span></span></h2>
+      <div class="rv" data-rv style="--d:.1s">
+        <details class="acc"><summary>Is the call really free?<span class="pm" aria-hidden="true">+</span></summary><p>Yes. Thirty minutes, no card, no obligation. If it turns out we're not the right studio for the job, we'll tell you who is.</p></details>
+        <details class="acc"><summary>Why don't you publish prices?<span class="pm" aria-hidden="true">+</span></summary><p>Because tiers are guesses. A two-hour brand shoot and a three-day wedding don't belong on the same menu. We scope once, after we understand the work.</p></details>
+        <details class="acc"><summary>What should I bring?<span class="pm" aria-hidden="true">+</span></summary><p>Rough dates, rough budget, and anything that shows the feeling you're after — a reel, a mood board, a competitor's site you envy.</p></details>
+        <details class="acc"><summary>Can you take just one piece — say, only photo?<span class="pm" aria-hidden="true">+</span></summary><p>Usually we work as one package, because that's what keeps a brand consistent. Tell us on the call and we'll be straight with you about whether a single craft makes sense.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span data-year>2026</span> E&amp;B Studios</span>
+    <a class="mono" data-email href="mailto:ethanlong1102@gmail.com">ethanlong1102@gmail.com</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
